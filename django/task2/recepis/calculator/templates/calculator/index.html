@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты</title>
+</head>
+<body>
+<h1> {{ title }} </h1>
+<form method="get">
+    {% for f in form %}
+    <p><label  for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+    {% endfor %}
+</form>
+{% for ingredient, amount in recipe.items %}
+<ul>
+    <li>{{ ingredient }}: {{ amount }}</li>
+</ul>
+{% empty %}
+    <p>Такого рецепта не знаю :(</p>
+{% endfor %}
+</body>
+</html>
