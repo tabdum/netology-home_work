@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ phone.name }}{% endblock %}
+
+{% block content %}
+<div class="container text-center my-5" xmlns="http://www.w3.org/1999/html">
+    <div class="">
+        <h1>{{ phone.name }}</h1>
+    </div>
+    <div class="container text-center my-md-3">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <img src="{{ phone.image }}" alt="{{ phone.name }}"/>
+                <div class=""> </div>
+                <div class="my-3">Стоимость: <b>{{ phone.price }}</b> ₽</div>
+                <div>Дата выпуска: <b>{{ phone.release_date|date:"Y-m-d" }}</b></div>
+                <div>LTE: <b>{{ phone.lte_exists|yesno:'есть,нет' }}</b></div>
+            </div>
+        </div>
+        <div class="container my-3">
+            <h5>
+                <a href="{% url 'catalog' %}">Вернуться в каталог</a>
+            </h5>
+        </div>
+    </div>
+    {% endblock %}
